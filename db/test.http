@@ -1,0 +1,52 @@
+POST /catalog/Orders HTTP/1.1
+Host: localhost:4004
+Content-Type: application/json
+Content-Length: 29
+
+{"book_ID":421, "quantity":5}
+###
+
+curl \
+  -d '{"ID": "527ef85a-aef2-464b-89f6-6a3ce64f2e14", "book_ID":427,"quantity":9}' \
+  -H 'Content-Type: application/json' \
+  http://localhost:4004/catalog/Orders
+###
+
+http://localhost:4004/catalog/Orders
+###
+
+curl \
+  -d '{"book_ID":201,"quantity":2}' \
+  -H 'Content-Type: application/json' \
+  http://localhost:4004/catalog/Orders
+###
+
+  curl \
+  -d '{"book_ID":252,"quantity":7}' \
+  -H 'Content-Type: application/json' \
+  http://localhost:4004/catalog/Orders
+###
+
+POST /catalog/Orders HTTP/1.1
+Host: S0000903391trial-trial-dev-bookshop-srv.cfapps.eu10.hana.ondemand.com:443
+Content-Type: application/json
+Content-Length: 29
+
+{"book_ID":421, "quantity":4}
+
+###
+
+curl \
+  -d '{"ID": "527ef85a-aef2-464b-89f6-6a3ce64f2e14", "book_ID":427,"quantity":9}' \
+  -H 'Content-Type: application/json' \
+  https://s0000903391trial-trial-dev-bookshop-srv.cfapps.eu10.hana.ondemand.com/catalog/Orders
+###
+
+https://s0000903391trial-trial-dev-bookshop-srv.cfapps.eu10.hana.ondemand.com/stats/OrderInfo
+###
+
+curl \
+  -d '{"book_ID":201,"quantity":2}' \
+  -H 'Content-Type: application/json' \
+  https://s0000903391trial-trial-dev-bookshop-srv.cfapps.eu10.hana.ondemand.com/catalog/Orders
+###

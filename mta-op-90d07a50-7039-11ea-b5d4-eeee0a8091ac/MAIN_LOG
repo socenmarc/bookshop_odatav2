@@ -1,0 +1,2727 @@
+#2.0#2020 03 27 14:45:13.332#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Process environment: {
+  "FLOWABLE_JOB_EXECUTOR_MAX_THREADS" : "64",
+  "BASIC_AUTH_ENABLED" : "true",
+  "CONTROLLER_CLIENT_CONNECTION_POOL_SIZE" : "192",
+  "FLOWABLE_JOB_EXECUTOR_CORE_THREADS" : "32",
+  "PLATFORM" : "{\n  \"name\": \"CLOUD-FOUNDRY\",\n  \"module-types\": [\n    { \"name\": \"custom\" },\n    { \"name\": \"javascript.nodejs\" },\n    { \"name\": \"java\", \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }},\n    { \"name\": \"java.tomcat\", \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }, \"properties\": { \"TARGET_RUNTIME\": \"tomcat\" }},\n    { \"name\": \"java.tomee\",  \"parameters\": { \"buildpack\": \"sap_java_buildpack\" }, \"properties\": { \"TARGET_RUNTIME\": \"tomee\" }},\n    { \"name\": \"com.sap.xs.hdi-dynamic\", \"parameters\": { \"buildpack\": \"nodejs_buildpack\" }},\n    { \"name\": \"com.sap.xs.hdi\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.xs.hdi-zdm\", \"parameters\": { \"zdm-mode\": true, \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1, \"HDI_DEPLOY_MODE\": \"ZDM\" }},\n    { \"name\": \"com.sap.portal.site-content\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of site content to .* done.*\", \"failure-marker\": \"STDERR:Deployment of site content to .* failed.*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }},\n    { \"name\": \"com.sap.portal.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.xs.dwf\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:The deployment of DWF content to .* container finished successfully .*\", \"failure-marker\": \"STDERR:The deployment of DWF content to .* container failed .*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }},\n    { \"name\": \"business-logging\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of content deployer done.\", \"failure-marker\": \"STDERR:Deployment of content deployer failed.\", \"stop-app\": true, \"health-check-type\": \"none\" }},\n    { \"name\": \"com.sap.business-logging.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"com.sap.html5.application-content\", \"parameters\": { \"no-route\": true, \"memory\": \"256M\", \"execute-app\": true, \"success-marker\": \"STDOUT:Deployment of html5 application content done.*\", \"failure-marker\": \"STDERR:Deployment of html5 application content failed.*\", \"stop-app\": true, \"check-deploy-id\": true, \"dependency-type\": \"hard\", \"health-check-type\": \"none\" }}, \n    { \"name\": \"com.sap.html5.application.content\", \"parameters\": { \"no-route\": true, \"no-start\": true, \"memory\": \"256M\", \"tasks\": [{ \"name\": \"deploy\", \"memory\": \"256M\", \"command\": \"npm start\" }], \"dependency-type\": \"hard\" }, \"properties\" : { \"EXIT\": 1 }},\n    { \"name\": \"staticfile\", \"parameters\": { \"buildpack\": \"staticfile_buildpack\" }},\n    { \"name\": \"ruby\", \"parameters\": { \"buildpack\": \"ruby_buildpack\" }},\n    { \"name\": \"nodejs\", \"parameters\": { \"buildpack\": \"nodejs_buildpack\" }},\n    { \"name\": \"go\", \"parameters\": { \"buildpack\": \"go_buildpack\" }},\n    { \"name\": \"python\", \"parameters\": { \"buildpack\": \"python_buildpack\" }},\n    { \"name\": \"php\", \"parameters\": { \"buildpack\": \"php_buildpack\" }},\n    { \"name\": \"binary\", \"parameters\": { \"buildpack\": \"binary_buildpack\" }},\n    { \"name\": \"dotnet_core\", \"parameters\": { \"buildpack\": \"dotnet_core_buildpack\" }},\n    { \"name\": \"application\" },\n    { \"name\": \"com.sap.application.content\" }\n  ],\n  \"resource-types\": [\n    { \"name\": \"com.sap.xs.hdi-container\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"hdi-shared\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-sbss\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"sbss\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-schema\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"schema\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.hana-securestore\", \"parameters\": { \"service\": \"hana\", \"service-plan\": \"securestore\", \"service-alternatives\": [\"hanatrial\"], \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hdi-container\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"hdi-shared\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hana-schema\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"schema\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.managed-hana-securestore\", \"parameters\": { \"service\": \"managed-hana\", \"service-plan\": \"securestore\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.job-scheduler\", \"parameters\": { \"service\": \"jobscheduler\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.fs\", \"parameters\": { \"service\": \"fs-storage\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-space\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-devuser\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-application\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"application\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.uaa-broker\", \"parameters\": { \"service\": \"xsuaa\", \"service-plan\": \"broker\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.application-logs\", \"parameters\": { \"service\": \"application-logs\", \"service-plan\": \"lite\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.portal.site-host\", \"parameters\": { \"service\": \"portal-services\", \"service-plan\": \"site-host\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.portal.site-content\", \"parameters\": { \"service\": \"portal-services\", \"service-plan\": \"site-content\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.sap.xs.dwf-edw-client\", \"parameters\": { \"service\": \"dwf\", \"service-plan\": \"edw-client\", \"type\": \"managed-service\"}},\n    { \"name\": \"com.sap.xs.auditlog\", \"parameters\": { \"service\": \"auditlog\", \"service-plan\": \"standard\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"auditlog\", \"parameters\": { \"service\": \"auditlog\", \"service-plan\": \"standard\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"org.mongodb\", \"parameters\": { \"service\": \"mongodb\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"mongodb\", \"parameters\": { \"service\": \"mongodb\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"org.postgresql\", \"parameters\": { \"service\": \"postgresql\", \"service-plan\": \"v9.4-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"postgresql\", \"parameters\": { \"service\": \"postgresql\", \"service-plan\": \"v9.4-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.rabbitmq\", \"parameters\": { \"service\": \"rabbitmq\", \"service-plan\": \"v3.6-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"rabbitmq\", \"parameters\": { \"service\": \"rabbitmq\", \"service-plan\": \"v3.6-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"io.redis\", \"parameters\": { \"service\": \"redis\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"redis\", \"parameters\": { \"service\": \"redis\", \"service-plan\": \"v3.0-dev\", \"type\": \"managed-service\" }},\n    { \"name\": \"com.influxdb\", \"parameters\": { \"service\": \"influxdb\", \"service-plan\": \"v0.13-container\", \"type\": \"managed-service\" }},\n    { \"name\": \"influxdb\", \"parameters\": { \"service\": \"influxdb\", \"service-plan\": \"v0.13-container\", \"type\": \"managed-service\" }},\n    { \"name\": \"org.cloudfoundry.user-provided-service\", \"parameters\": { \"type\": \"user-provided-service\" }},\n    { \"name\": \"org.cloudfoundry.managed-service\", \"parameters\": { \"type\": \"managed-service\" }},\n    { \"name\": \"org.cloudfoundry.existing-service\", \"parameters\": { \"type\": \"existing-service\" }},\n    { \"name\": \"org.cloudfoundry.existing-service-key\", \"parameters\": { \"type\": \"existing-service-key\" }},\n    { \"name\": \"mta-provided\", \"parameters\": { \"type\": \"mta-provides-dependency\" }},\n    { \"name\": \"configuration\", \"parameters\": { \"type\": \"configuration\" }},\n    { \"name\": \"autoscaler\", \"parameters\": { \"service\": \"autoscaler\", \"service-plan\": \"lite\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"application-logs\", \"parameters\": { \"service\": \"application-logs\", \"service-plan\": \"lite\", \"ignore-update-errors\": true , \"type\": \"managed-service\" }},\n    { \"name\": \"connectivity\", \"parameters\": { \"service\": \"connectivity\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"feature-flags\", \"parameters\": { \"service\": \"feature-flags\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"metering\", \"parameters\": { \"service\": \"metering\", \"service-plan\": \"standard\", \"type\": \"managed-service\" }},\n    { \"name\": \"ml-foundation-services\", \"parameters\": { \"service\": \"ml-foundation-services\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }},\n    { \"name\": \"objectstore\", \"parameters\": { \"service\": \"objectstore\", \"service-plan\": \"s3-standard\", \"type\": \"managed-service\" }},\n    { \"name\": \"destination\", \"parameters\": { \"service\": \"destination\", \"service-plan\": \"lite\", \"type\": \"managed-service\" }}\n  ]\n}\n",
+  "SKIP_SSL_VALIDATION" : "false",
+  "DB_TYPE" : "POSTGRESQL",
+  "CONTROLLER_CLIENT_THREAD_POOL_SIZE" : "64",
+  "XS_TYPE" : "CF",
+  "VERSION" : "1.98.4",
+  "MAIL_API_URL" : "https://slanamailproxyab00ec583.hana.ondemand.com/SendFeedbackMail/",
+  "FLOWABLE_JOB_EXECUTOR_QUEUE_CAPACITY" : "8",
+  "GLOBAL_AUDITOR_USER" : "provisioned_user_xsa_deploy-serviceDSglobalAuditorUser",
+  "GATHER_USAGE_STATISTICS" : "false"
+}#
+
+#2.0#2020 03 27 14:45:13.332#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Current user: mmauri@seidor.es#
+
+#2.0#2020 03 27 14:45:13.333#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Client space: CF_PT_Space#
+
+#2.0#2020 03 27 14:45:13.333#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Client org: SEIDOR, S.A._SEIDOR#
+
+#2.0#2020 03 27 14:45:13.333#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.startEvent#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########http-nio-0.0.0.0-8080-exec-14###
+[XS2StartProcessListener] Process variables: {
+  "abortOnError" : false,
+  "keepFiles" : false,
+  "versionRule" : "SAME_HIGHER",
+  "gitSkipSsl" : false,
+  "verifyArchiveSignature" : false,
+  "failOnCrashed" : true,
+  "noFailOnMissingPermissions" : false,
+  "useNamespacesForServices" : true,
+  "skipOwnershipValidation" : false,
+  "startTimeout" : 3600,
+  "deleteServiceBrokers" : false,
+  "appArchiveId" : "2d518c95-a10b-496f-a5a7-6f3f8846801d,a40d5abd-dc15-48a1-b2b6-43014b3aecd2,5864b89b-db60-4179-b93b-bc873533694b",
+  "gitUri" : "",
+  "noRestartSubscribedApps" : false,
+  "deleteServiceKeys" : false,
+  "useNamespaces" : false,
+  "deleteServices" : false,
+  "noStart" : false
+}#
+
+#2.0#2020 03 27 14:45:13.364#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Executing task "validateParametersTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:13.364#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Validating parameters...#
+
+#2.0#2020 03 27 14:45:13.369#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Building archive from parts...#
+
+#2.0#2020 03 27 14:45:13.370#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Merging archive part with ID "a40d5abd-dc15-48a1-b2b6-43014b3aecd2", name "bookshop_1.0.0.mtar.part.0"#
+
+#2.0#2020 03 27 14:45:13.848#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Merging archive part with ID "5864b89b-db60-4179-b93b-bc873533694b", name "bookshop_1.0.0.mtar.part.1"#
+
+#2.0#2020 03 27 14:45:14.377#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Merging archive part with ID "2d518c95-a10b-496f-a5a7-6f3f8846801d", name "bookshop_1.0.0.mtar.part.2"#
+
+#2.0#2020 03 27 14:45:15.863#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Deploying in org "SEIDOR, S.A._SEIDOR" and space "CF_PT_Space"#
+
+#2.0#2020 03 27 14:45:15.866#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[ValidateDeployParametersStep] Parameters validated#
+
+#2.0#2020 03 27 14:45:15.867#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.validateParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+Step "Validate Parameters" finished#
+
+#2.0#2020 03 27 14:45:15.891#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.deleteRemainingFileParts#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+[DeleteRemainingFileParts] Executing task "deleteRemainingFileParts" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:15.964#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.deleteRemainingFileParts#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+Step "Delete Remaining File Parts" finished#
+
+#2.0#2020 03 27 14:45:15.984#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[XS2ProcessMtaArchiveStep] Executing task "processArchiveTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:15.985#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[XS2ProcessMtaArchiveStep] Processing MTA archive...#
+
+#2.0#2020 03 27 14:45:16.015#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[XS2ProcessMtaArchiveStep] MTA Archive ID: 09750548-30b4-4853-8e11-4016dd1f7a9c#
+
+#2.0#2020 03 27 14:45:16.016#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[XS2ProcessMtaArchiveStep] MTA Archive Modules: [bookshop-ui, bookshop-db, bookshop-srv]#
+
+#2.0#2020 03 27 14:45:16.016#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[XS2ProcessMtaArchiveStep] MTA Archive Requires: []#
+
+#2.0#2020 03 27 14:45:16.016#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[XS2ProcessMtaArchiveStep] MTA Archive Resources: []#
+
+#2.0#2020 03 27 14:45:16.023#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[XS2ProcessMtaArchiveStep] MTA archive processed#
+
+#2.0#2020 03 27 14:45:16.024#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processArchiveTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+Step "Process Archive" finished#
+
+#2.0#2020 03 27 14:45:16.050#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaExtensionDescriptorsStep] Executing task "processExtensionDescriptorsTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:16.051#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaExtensionDescriptorsStep] Processing MTA extension descriptors...#
+
+#2.0#2020 03 27 14:45:16.052#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaExtensionDescriptorsStep] Extension descriptors: [ ]#
+
+#2.0#2020 03 27 14:45:16.052#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+[ProcessMtaExtensionDescriptorsStep] MTA extension descriptors processed#
+
+#2.0#2020 03 27 14:45:16.053#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processExtensionDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-16###
+Step "Process Extension Descriptors" finished#
+
+#2.0#2020 03 27 14:45:16.076#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[DetectMtaSchemaVersionStep] Executing task "detectSchemaVersionTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:16.077#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[DetectMtaSchemaVersionStep] Detecting MTA major schema version...#
+
+#2.0#2020 03 27 14:45:16.078#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+[DetectMtaSchemaVersionStep] Detected MTA schema version: "3"#
+
+#2.0#2020 03 27 14:45:16.082#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectSchemaVersionTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-23###
+Step "Detect Schema Version" finished#
+
+#2.0#2020 03 27 14:45:16.105#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[MergeDescriptorsStep] Executing task "mergeDescriptorsTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:16.106#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[MergeDescriptorsStep] Validating and merging descriptors...#
+
+#2.0#2020 03 27 14:45:16.108#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[MergeDescriptorsStep] Merged deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "bookshop",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db",
+    "type" : "com.sap.xs.hdi",
+    "path" : "bookshop-db",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "memory" : "256M",
+      "disk-quota" : "256M",
+      "no-route" : true,
+      "dependency-type" : "hard",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-srv",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-srv",
+    "properties" : { },
+    "parameters" : {
+      "disk-quota" : "256M",
+      "memory" : "512M"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-ui",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-ui",
+    "properties" : { },
+    "parameters" : {
+      "disk-quota" : "256M",
+      "memory" : "256M"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv_api",
+        "forwardAuthToken" : "********",
+        "strictSSL" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-ui",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : {
+      "hdi-container-name" : "${service-name}"
+    },
+    "parameters" : {
+      "service-plan" : "hdi-shared",
+      "service-alternatives" : [ "hanatrial" ],
+      "type" : "managed-service",
+      "service" : "hana"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : { },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 03 27 14:45:16.109#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+[MergeDescriptorsStep] Descriptors validated and merged#
+
+#2.0#2020 03 27 14:45:16.110#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.mergeDescriptorsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-8###
+Step "Merge Descriptors" finished#
+
+#2.0#2020 03 27 14:45:16.133#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-20###
+[DetectDeployedMtaStep] Executing task "detectDeployedMtaTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:16.134#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-20###
+[DetectDeployedMtaStep] Detecting deployed MTA...#
+
+#2.0#2020 03 27 14:45:18.948#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-20###
+[DetectDeployedMtaStep] No deployed MTA detected - this is initial deployment#
+
+#2.0#2020 03 27 14:45:18.953#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.detectDeployedMtaTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-20###
+Step "Detect Deployed MTA" finished#
+
+#2.0#2020 03 27 14:45:18.975#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] Executing task "collectSystemParametersTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:18.976#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] Collecting system parameters...#
+
+#2.0#2020 03 27 14:45:19.168#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] Default domain: cfapps.eu10.hana.ondemand.com#
+
+#2.0#2020 03 27 14:45:19.169#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] Checking for overwriting read-only parameters for mta with id: "bookshop"#
+
+#2.0#2020 03 27 14:45:19.169#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] No read-only parameters are overwritten#
+
+#2.0#2020 03 27 14:45:20.197#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] Descriptor with system parameters: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "bookshop",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db",
+    "type" : "com.sap.xs.hdi",
+    "path" : "bookshop-db",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-db",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "dependency-type" : "hard",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true,
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-srv",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-srv",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "512M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-ui",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-ui",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-ui",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv_api",
+        "forwardAuthToken" : "********",
+        "strictSSL" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-ui",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : {
+      "hdi-container-name" : "${service-name}"
+    },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "bookshop-db-hdi-container",
+      "service-alternatives" : [ "hanatrial" ],
+      "type" : "managed-service",
+      "default-service-name" : "bookshop-db-hdi-container",
+      "default-container-name" : "SEIDOR__S_A__SEIDOR_CF_PT_SPACE_BOOKSHOP_DB_HDI_CONTAINER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "SEIDOR, S.A._SEIDOR",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "SEIDOR, S.A._SEIDOR CF_PT_Space",
+    "xs-auth-url" : "********",
+    "user" : "********",
+    "space" : "CF_PT_Space",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 03 27 14:45:20.197#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] Version rule: SAME_HIGHER#
+
+#2.0#2020 03 27 14:45:20.198#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] Detected new MTA version: "1.0.0"#
+
+#2.0#2020 03 27 14:45:20.201#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] MTA accepted for deployment#
+
+#2.0#2020 03 27 14:45:20.201#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+[CollectSystemParametersStep] System parameters collected#
+
+#2.0#2020 03 27 14:45:20.202#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.collectSystemParametersTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-7###
+Step "Collect System Parameters" finished#
+
+#2.0#2020 03 27 14:45:20.226#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+[XS2ProcessDescriptorStep] Executing task "processDescriptorTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:20.228#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor with ZDM enhancements: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "bookshop",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db",
+    "type" : "com.sap.xs.hdi",
+    "path" : "bookshop-db",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-db",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "dependency-type" : "hard",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true,
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-srv",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-srv",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "512M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-ui",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-ui",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-ui",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv_api",
+        "forwardAuthToken" : "********",
+        "strictSSL" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-ui",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : {
+      "hdi-container-name" : "${service-name}"
+    },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "bookshop-db-hdi-container",
+      "service-alternatives" : [ "hanatrial" ],
+      "type" : "managed-service",
+      "default-service-name" : "bookshop-db-hdi-container",
+      "default-container-name" : "SEIDOR__S_A__SEIDOR_CF_PT_SPACE_BOOKSHOP_DB_HDI_CONTAINER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "SEIDOR, S.A._SEIDOR",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "SEIDOR, S.A._SEIDOR CF_PT_Space",
+    "xs-auth-url" : "********",
+    "user" : "********",
+    "space" : "CF_PT_Space",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 03 27 14:45:20.230#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+[XS2ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+
+#2.0#2020 03 27 14:45:20.232#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+[XS2ProcessDescriptorStep] Subscriptions: [ ]#
+
+#2.0#2020 03 27 14:45:20.232#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+[XS2ProcessDescriptorStep] MTA Modules: [bookshop-ui, bookshop-db, bookshop-srv]#
+
+#2.0#2020 03 27 14:45:20.233#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "bookshop",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db",
+    "type" : "com.sap.xs.hdi",
+    "path" : "bookshop-db",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-db.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "bookshop-db",
+      "generated-password" : "********",
+      "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-db.cfapps.eu10.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "instances" : 1,
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+      "app-name" : "bookshop-db",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true,
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-srv",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "bookshop-srv",
+      "generated-password" : "********",
+      "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com",
+      "memory" : "512M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+      "app-name" : "bookshop-srv",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-ui",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-ui",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-ui.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "bookshop-ui",
+      "generated-password" : "********",
+      "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui.cfapps.eu10.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+      "app-name" : "bookshop-ui",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv_api",
+        "forwardAuthToken" : "********",
+        "strictSSL" : true,
+        "url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-ui",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : {
+      "hdi-container-name" : "bookshop-db-hdi-container"
+    },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "bookshop-db-hdi-container",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "bookshop-db-hdi-container",
+      "service-alternatives" : [ "hanatrial" ],
+      "type" : "managed-service",
+      "default-service-name" : "bookshop-db-hdi-container",
+      "default-container-name" : "SEIDOR__S_A__SEIDOR_CF_PT_SPACE_BOOKSHOP_DB_HDI_CONTAINER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "SEIDOR, S.A._SEIDOR",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "SEIDOR, S.A._SEIDOR CF_PT_Space",
+    "xs-auth-url" : "********",
+    "user" : "********",
+    "space" : "CF_PT_Space",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 03 27 14:45:20.233#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+[XS2ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+
+#2.0#2020 03 27 14:45:20.234#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.processDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-29###
+Step "Process Descriptor Step" finished#
+
+#2.0#2020 03 27 14:45:20.260#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Executing task "buildDeployModelTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:20.261#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Building cloud deployment model...#
+
+#2.0#2020 03 27 14:45:20.263#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] MTA archive modules: [bookshop-ui, bookshop-db, bookshop-srv]#
+
+#2.0#2020 03 27 14:45:20.263#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Deployed modules: []#
+
+#2.0#2020 03 27 14:45:20.264#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] MTA modules: [bookshop-ui, bookshop-db, bookshop-srv]#
+
+#2.0#2020 03 27 14:45:20.264#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Service keys to create: {
+  "bookshop-db-hdi-container" : [ ]
+}#
+
+#2.0#2020 03 27 14:45:20.265#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Modules to deploy: [ {
+  "majorSchemaVersion" : 3,
+  "name" : "bookshop-db",
+  "type" : "com.sap.xs.hdi",
+  "path" : "bookshop-db",
+  "properties" : {
+    "EXIT" : 1
+  },
+  "parameters" : {
+    "app-name" : "bookshop-db",
+    "default-app-name" : "bookshop-db",
+    "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+    "default-instances" : 1,
+    "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-db.cfapps.eu10.hana.ondemand.com",
+    "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-db.cfapps.eu10.hana.ondemand.com",
+    "dependency-type" : "hard",
+    "disk-quota" : "256M",
+    "domain" : "cfapps.eu10.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "********",
+    "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+    "instances" : 1,
+    "memory" : "256M",
+    "no-route" : true,
+    "no-start" : true,
+    "protocol" : "https",
+    "tasks" : [ {
+      "command" : "npm start",
+      "memory" : "256M",
+      "name" : "deploy"
+    } ],
+    "timestamp" : "20200327144520"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "hooks" : [ ]
+}, {
+  "majorSchemaVersion" : 3,
+  "name" : "bookshop-srv",
+  "type" : "javascript.nodejs",
+  "path" : "bookshop-srv",
+  "properties" : { },
+  "parameters" : {
+    "app-name" : "bookshop-srv",
+    "default-app-name" : "bookshop-srv",
+    "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+    "default-instances" : 1,
+    "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com",
+    "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com",
+    "dependency-type" : "soft",
+    "disk-quota" : "256M",
+    "domain" : "cfapps.eu10.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "********",
+    "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+    "instances" : 1,
+    "memory" : "512M",
+    "protocol" : "https",
+    "timestamp" : "20200327144520"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "srv_api",
+    "isPublic" : false,
+    "properties" : {
+      "url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-srv",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "hooks" : [ ]
+}, {
+  "majorSchemaVersion" : 3,
+  "name" : "bookshop-ui",
+  "type" : "javascript.nodejs",
+  "path" : "bookshop-ui",
+  "properties" : { },
+  "parameters" : {
+    "app-name" : "bookshop-ui",
+    "default-app-name" : "bookshop-ui",
+    "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+    "default-instances" : 1,
+    "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui.cfapps.eu10.hana.ondemand.com",
+    "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-ui.cfapps.eu10.hana.ondemand.com",
+    "dependency-type" : "soft",
+    "disk-quota" : "256M",
+    "domain" : "cfapps.eu10.hana.ondemand.com",
+    "generated-password" : "********",
+    "generated-user" : "********",
+    "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+    "instances" : 1,
+    "memory" : "256M",
+    "protocol" : "https",
+    "timestamp" : "20200327144520"
+  },
+  "requiredDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "srv_api",
+    "group" : "destinations",
+    "properties" : {
+      "forwardAuthToken" : "********",
+      "name" : "srv_api",
+      "strictSSL" : true,
+      "url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com"
+    },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "providedDependencies" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-ui",
+    "isPublic" : false,
+    "properties" : { },
+    "parameters" : { },
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    }
+  } ],
+  "propertiesMetadata" : {
+    "metadata" : { }
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  },
+  "hooks" : [ ]
+} ]#
+
+#2.0#2020 03 27 14:45:20.266#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Custom domains: []#
+
+#2.0#2020 03 27 14:45:20.267#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Services to create: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "bookshop-db-hdi-container",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "bookshop",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"bookshop-db-hdi-container\"}"
+    },
+    "labels" : {
+      "mta_id" : "2a4a0bf95d32e1e3699eb55927334851"
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "alternativeLabels" : [ "hanatrial" ],
+  "resourceName" : "bookshop-db-hdi-container",
+  "credentials" : "********",
+  "tags" : [ ],
+  "shouldIgnoreUpdateErrors" : false
+} ]#
+
+#2.0#2020 03 27 14:45:20.267#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildCloudDeployModelStep] Cloud deployment model built#
+
+#2.0#2020 03 27 14:45:20.268#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+Step "Build Deploy Model" finished#
+
+#2.0#2020 03 27 14:45:20.302#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[BuildCloudUndeployModelStep] Executing task "buildUndeployModelTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:20.303#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[BuildCloudUndeployModelStep] Building cloud undeployment model...#
+
+#2.0#2020 03 27 14:45:20.305#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildUndeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+Step "Build Undeploy Model" finished#
+
+#2.0#2020 03 27 14:45:20.333#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Executing task "checkForCreationConflictsTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:20.334#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Validating services to create...#
+
+#2.0#2020 03 27 14:45:20.509#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Services to create successfully validated#
+
+#2.0#2020 03 27 14:45:20.510#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Validating applications to deploy...#
+
+#2.0#2020 03 27 14:45:20.511#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Trying to validate association of application "bookshop-db"#
+
+#2.0#2020 03 27 14:45:21.175#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Trying to validate association of application "bookshop-srv"#
+
+#2.0#2020 03 27 14:45:21.439#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Trying to validate association of application "bookshop-ui"#
+
+#2.0#2020 03 27 14:45:22.868#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+[CheckForCreationConflictsStep] Applications to deploy successfully validated#
+
+#2.0#2020 03 27 14:45:22.870#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.checkForCreationConflictsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-22###
+Step "Check For Creation Conflicts" finished#
+
+#2.0#2020 03 27 14:45:22.893#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.addDomainsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[AddDomainsStep] Executing task "addDomainsTask" of process "90d07a6b-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:22.894#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.addDomainsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[AddDomainsStep] Custom domains: []#
+
+#2.0#2020 03 27 14:45:22.895#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.addDomainsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+Step "Add Domains" finished#
+
+#2.0#2020 03 27 14:45:22.959#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CheckForOperationsInProgressTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CheckForOperationsInProgressStep] Executing task "CheckForOperationsInProgressTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:23.141#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CheckForOperationsInProgressTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+Step "Check for operations in Progress" finished#
+
+#2.0#2020 03 27 14:45:23.164#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.DetermineServiceCreateUpdateActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[DetermineServiceCreateUpdateServiceActionsStep] Executing task "DetermineServiceCreateUpdateActionsTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:23.165#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.DetermineServiceCreateUpdateActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[DetermineServiceCreateUpdateServiceActionsStep] Processing service "bookshop-db-hdi-container"...#
+
+#2.0#2020 03 27 14:45:23.337#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.DetermineServiceCreateUpdateActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[DetermineServiceCreateUpdateServiceActionsStep] Service should be created#
+
+#2.0#2020 03 27 14:45:23.341#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.DetermineServiceCreateUpdateActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+Step "Determine update actions" finished#
+
+#2.0#2020 03 27 14:45:23.371#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[CreateServiceStep] Executing task "CreateServiceTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:23.373#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[CreateServiceStep] Creating service "bookshop-db-hdi-container" from MTA resource "bookshop-db-hdi-container"...#
+
+#2.0#2020 03 27 14:45:23.531#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[CreateServiceStep] Service "bookshop-db-hdi-container" has defined service offering alternatives "[hanatrial]" for default service offering "hana"#
+
+#2.0#2020 03 27 14:45:36.562#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[CreateServiceStep] updated service metadata name: CloudService{name=bookshop-db-hdi-container, metadata=CloudMetadata{guid=66aa7ef2-4771-4b81-b355-d6c95a623f3f, createdAt=Fri Mar 27 14:45:29 UTC 2020, updatedAt=Fri Mar 27 14:45:29 UTC 2020, url=/v2/service_instances/66aa7ef2-4771-4b81-b355-d6c95a623f3f}, v3Metadata=Metadata{annotations={mta_id=bookshop, mta_version=1.0.0, mta_resource={"name":"bookshop-db-hdi-container"}}, labels={mta_id=2a4a0bf95d32e1e3699eb55927334851, mta_version=null}}, label=hana, plan=hdi-shared, provider=null, version=null} metadata: {
+  "annotations" : {
+    "mta_id" : "bookshop",
+    "mta_version" : "1.0.0",
+    "mta_resource" : "{\"name\":\"bookshop-db-hdi-container\"}"
+  },
+  "labels" : {
+    "mta_id" : "2a4a0bf95d32e1e3699eb55927334851",
+    "mta_version" : null
+  }
+}#
+
+#2.0#2020 03 27 14:45:36.562#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[CreateServiceStep] Service "bookshop-db-hdi-container" created#
+
+#2.0#2020 03 27 14:45:36.562#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+[CreateServiceStep] Triggered service operations: {
+  "bookshop-db-hdi-container" : "CREATE"
+}#
+
+#2.0#2020 03 27 14:45:36.564#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-30###
+Step "Create" finished#
+
+#2.0#2020 03 27 14:45:46.270#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Executing task "CreateServiceTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:46.271#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Polling service operations...#
+
+#2.0#2020 03 27 14:45:46.563#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Last operation for service "bookshop-db-hdi-container": {
+  "type" : "CREATE",
+  "description" : "",
+  "state" : "IN_PROGRESS"
+}#
+
+#2.0#2020 03 27 14:45:46.563#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] 0 of 1 done, (1 creating)#
+
+#2.0#2020 03 27 14:45:46.566#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Remaining services to poll: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "bookshop-db-hdi-container",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "bookshop",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"bookshop-db-hdi-container\"}"
+    },
+    "labels" : {
+      "mta_id" : "2a4a0bf95d32e1e3699eb55927334851",
+      "mta_version" : null
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "alternativeLabels" : [ "hanatrial" ],
+  "resourceName" : "bookshop-db-hdi-container",
+  "credentials" : { },
+  "tags" : [ ],
+  "shouldIgnoreUpdateErrors" : false
+} ]#
+
+#2.0#2020 03 27 14:45:46.568#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+Step "Create" finished#
+
+#2.0#2020 03 27 14:45:56.247#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[CreateServiceStep] Executing task "CreateServiceTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:45:56.248#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[CreateServiceStep] Polling service operations...#
+
+#2.0#2020 03 27 14:45:59.734#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[CreateServiceStep] Last operation for service "bookshop-db-hdi-container": {
+  "type" : "CREATE",
+  "description" : "",
+  "state" : "IN_PROGRESS"
+}#
+
+#2.0#2020 03 27 14:45:59.734#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[CreateServiceStep] 0 of 1 done, (1 creating)#
+
+#2.0#2020 03 27 14:45:59.739#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+[CreateServiceStep] Remaining services to poll: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "bookshop-db-hdi-container",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "bookshop",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"bookshop-db-hdi-container\"}"
+    },
+    "labels" : {
+      "mta_id" : "2a4a0bf95d32e1e3699eb55927334851",
+      "mta_version" : null
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "alternativeLabels" : [ "hanatrial" ],
+  "resourceName" : "bookshop-db-hdi-container",
+  "credentials" : { },
+  "tags" : [ ],
+  "shouldIgnoreUpdateErrors" : false
+} ]#
+
+#2.0#2020 03 27 14:45:59.743#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-10###
+Step "Create" finished#
+
+#2.0#2020 03 27 14:46:06.327#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Executing task "CreateServiceTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:46:06.328#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Polling service operations...#
+
+#2.0#2020 03 27 14:46:07.089#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Last operation for service "bookshop-db-hdi-container": {
+  "type" : "CREATE",
+  "description" : "",
+  "state" : "IN_PROGRESS"
+}#
+
+#2.0#2020 03 27 14:46:07.090#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] 0 of 1 done, (1 creating)#
+
+#2.0#2020 03 27 14:46:07.093#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[CreateServiceStep] Remaining services to poll: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "bookshop-db-hdi-container",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "bookshop",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"bookshop-db-hdi-container\"}"
+    },
+    "labels" : {
+      "mta_id" : "2a4a0bf95d32e1e3699eb55927334851",
+      "mta_version" : null
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "alternativeLabels" : [ "hanatrial" ],
+  "resourceName" : "bookshop-db-hdi-container",
+  "credentials" : { },
+  "tags" : [ ],
+  "shouldIgnoreUpdateErrors" : false
+} ]#
+
+#2.0#2020 03 27 14:46:07.096#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+Step "Create" finished#
+
+#2.0#2020 03 27 14:46:16.373#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+[CreateServiceStep] Executing task "CreateServiceTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:46:16.374#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+[CreateServiceStep] Polling service operations...#
+
+#2.0#2020 03 27 14:46:17.769#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+[CreateServiceStep] Last operation for service "bookshop-db-hdi-container": {
+  "type" : "CREATE",
+  "description" : "",
+  "state" : "IN_PROGRESS"
+}#
+
+#2.0#2020 03 27 14:46:17.770#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+[CreateServiceStep] 0 of 1 done, (1 creating)#
+
+#2.0#2020 03 27 14:46:17.773#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+[CreateServiceStep] Remaining services to poll: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "bookshop-db-hdi-container",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "bookshop",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"bookshop-db-hdi-container\"}"
+    },
+    "labels" : {
+      "mta_id" : "2a4a0bf95d32e1e3699eb55927334851",
+      "mta_version" : null
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "alternativeLabels" : [ "hanatrial" ],
+  "resourceName" : "bookshop-db-hdi-container",
+  "credentials" : { },
+  "tags" : [ ],
+  "shouldIgnoreUpdateErrors" : false
+} ]#
+
+#2.0#2020 03 27 14:46:17.776#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-9###
+Step "Create" finished#
+
+#2.0#2020 03 27 14:46:26.370#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+[CreateServiceStep] Executing task "CreateServiceTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:46:26.371#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+[CreateServiceStep] Polling service operations...#
+
+#2.0#2020 03 27 14:46:26.672#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+[CreateServiceStep] Last operation for service "bookshop-db-hdi-container": {
+  "type" : "CREATE",
+  "description" : "",
+  "state" : "IN_PROGRESS"
+}#
+
+#2.0#2020 03 27 14:46:26.673#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+[CreateServiceStep] 0 of 1 done, (1 creating)#
+
+#2.0#2020 03 27 14:46:26.677#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+[CreateServiceStep] Remaining services to poll: [ {
+  "isOptional" : false,
+  "isManaged" : true,
+  "name" : "bookshop-db-hdi-container",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "bookshop",
+      "mta_version" : "1.0.0",
+      "mta_resource" : "{\"name\":\"bookshop-db-hdi-container\"}"
+    },
+    "labels" : {
+      "mta_id" : "2a4a0bf95d32e1e3699eb55927334851",
+      "mta_version" : null
+    }
+  },
+  "label" : "hana",
+  "plan" : "hdi-shared",
+  "alternativeLabels" : [ "hanatrial" ],
+  "resourceName" : "bookshop-db-hdi-container",
+  "credentials" : { },
+  "tags" : [ ],
+  "shouldIgnoreUpdateErrors" : false
+} ]#
+
+#2.0#2020 03 27 14:46:26.681#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-28###
+Step "Create" finished#
+
+#2.0#2020 03 27 14:46:36.401#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[CreateServiceStep] Executing task "CreateServiceTask" of process "968a3c7c-7039-11ea-b5d4-eeee0a8091ac"...#
+
+#2.0#2020 03 27 14:46:36.402#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[CreateServiceStep] Polling service operations...#
+
+#2.0#2020 03 27 14:46:39.252#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[CreateServiceStep] Last operation for service "bookshop-db-hdi-container": {
+  "type" : "CREATE",
+  "description" : "",
+  "state" : "SUCCEEDED"
+}#
+
+#2.0#2020 03 27 14:46:39.252#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[CreateServiceStep] Service "bookshop-db-hdi-container" created#
+
+#2.0#2020 03 27 14:46:39.252#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[CreateServiceStep] 1 of 1 done#
+
+#2.0#2020 03 27 14:46:39.255#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+[CreateServiceStep] Remaining services to poll: [ ]#
+
+#2.0#2020 03 27 14:46:39.268#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.CreateServiceTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-18###
+Step "Create" finished#
+
+#2.0#2020 03 27 14:46:39.367#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.prepareModulesDeploymentTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[PrepareModulesDeploymentStep] Executing task "prepareModulesDeploymentTask" of process "c4137e66-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:46:39.368#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.prepareModulesDeploymentTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[PrepareModulesDeploymentStep] Preparing modules deployment...#
+
+#2.0#2020 03 27 14:46:39.372#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.prepareModulesDeploymentTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+Step "Prepare Modules Deployment" finished#
+
+#2.0#2020 03 27 14:46:39.476#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[XS2ProcessDescriptorStep] Executing task "reprocessDescriptorTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:46:39.479#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor with ZDM enhancements: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "bookshop",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db",
+    "type" : "com.sap.xs.hdi",
+    "path" : "bookshop-db",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-db",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "dependency-type" : "hard",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "name" : "deploy",
+        "memory" : "256M",
+        "command" : "npm start"
+      } ],
+      "no-start" : true,
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-srv",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-srv",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "512M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "${default-url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-ui",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-ui",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "${protocol}://${default-uri}",
+      "default-app-name" : "bookshop-ui",
+      "generated-password" : "********",
+      "default-uri" : "${host}.${domain}",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : "${default-instances}",
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+      "app-name" : "${default-app-name}",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "${default-domain}",
+      "host" : "${default-host}",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv_api",
+        "forwardAuthToken" : "********",
+        "strictSSL" : true,
+        "url" : "~{url}"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-ui",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : {
+      "hdi-container-name" : "${service-name}"
+    },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "${default-service-name}",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "bookshop-db-hdi-container",
+      "service-alternatives" : [ "hanatrial" ],
+      "type" : "managed-service",
+      "default-service-name" : "bookshop-db-hdi-container",
+      "default-container-name" : "SEIDOR__S_A__SEIDOR_CF_PT_SPACE_BOOKSHOP_DB_HDI_CONTAINER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "SEIDOR, S.A._SEIDOR",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "SEIDOR, S.A._SEIDOR CF_PT_Space",
+    "xs-auth-url" : "********",
+    "user" : "********",
+    "space" : "CF_PT_Space",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 03 27 14:46:39.480#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[XS2ProcessDescriptorStep] Resolving properties and parameters in merged descriptor...#
+
+#2.0#2020 03 27 14:46:39.482#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[XS2ProcessDescriptorStep] Subscriptions: [ ]#
+
+#2.0#2020 03 27 14:46:39.486#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[XS2ProcessDescriptorStep] MTA Modules: [bookshop-ui, bookshop-db, bookshop-srv]#
+
+#2.0#2020 03 27 14:46:39.489#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[XS2ProcessDescriptorStep] Resolved deployment descriptor: {
+  "majorSchemaVersion" : 3,
+  "schemaVersion" : "3.3.0",
+  "id" : "bookshop",
+  "version" : "1.0.0",
+  "modules" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db",
+    "type" : "com.sap.xs.hdi",
+    "path" : "bookshop-db",
+    "properties" : {
+      "EXIT" : 1
+    },
+    "parameters" : {
+      "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-db.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "bookshop-db",
+      "generated-password" : "********",
+      "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-db.cfapps.eu10.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "no-route" : true,
+      "instances" : 1,
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+      "app-name" : "bookshop-db",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "dependency-type" : "hard",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-db",
+      "generated-user" : "********",
+      "tasks" : [ {
+        "command" : "npm start",
+        "memory" : "256M",
+        "name" : "deploy"
+      } ],
+      "no-start" : true,
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-srv",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-srv",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "bookshop-srv",
+      "generated-password" : "********",
+      "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com",
+      "memory" : "512M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+      "app-name" : "bookshop-srv",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-srv",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-db-hdi-container",
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "isPublic" : false,
+      "properties" : {
+        "url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    }, {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-srv",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  }, {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-ui",
+    "type" : "javascript.nodejs",
+    "path" : "bookshop-ui",
+    "properties" : { },
+    "parameters" : {
+      "default-url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-ui.cfapps.eu10.hana.ondemand.com",
+      "default-app-name" : "bookshop-ui",
+      "generated-password" : "********",
+      "default-uri" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui.cfapps.eu10.hana.ondemand.com",
+      "memory" : "256M",
+      "default-instances" : 1,
+      "instances" : 1,
+      "default-host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+      "app-name" : "bookshop-ui",
+      "protocol" : "https",
+      "disk-quota" : "256M",
+      "domain" : "cfapps.eu10.hana.ondemand.com",
+      "host" : "seidor--s-a--seidor-cf-pt-space-bookshop-ui",
+      "generated-user" : "********",
+      "timestamp" : "20200327144520"
+    },
+    "requiredDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "srv_api",
+      "group" : "destinations",
+      "properties" : {
+        "name" : "srv_api",
+        "forwardAuthToken" : "********",
+        "strictSSL" : true,
+        "url" : "https://seidor--s-a--seidor-cf-pt-space-bookshop-srv.cfapps.eu10.hana.ondemand.com"
+      },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "providedDependencies" : [ {
+      "majorSchemaVersion" : 3,
+      "name" : "bookshop-ui",
+      "isPublic" : false,
+      "properties" : { },
+      "parameters" : { },
+      "propertiesMetadata" : {
+        "metadata" : { }
+      },
+      "parametersMetadata" : {
+        "metadata" : { }
+      }
+    } ],
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "hooks" : [ ]
+  } ],
+  "resources" : [ {
+    "majorSchemaVersion" : 3,
+    "name" : "bookshop-db-hdi-container",
+    "type" : "com.sap.xs.hdi-container",
+    "properties" : {
+      "hdi-container-name" : "bookshop-db-hdi-container"
+    },
+    "parameters" : {
+      "generated-password" : "********",
+      "service-name" : "bookshop-db-hdi-container",
+      "service-plan" : "hdi-shared",
+      "service" : "hana",
+      "generated-user" : "********",
+      "default-xsappname" : "bookshop-db-hdi-container",
+      "service-alternatives" : [ "hanatrial" ],
+      "type" : "managed-service",
+      "default-service-name" : "bookshop-db-hdi-container",
+      "default-container-name" : "SEIDOR__S_A__SEIDOR_CF_PT_SPACE_BOOKSHOP_DB_HDI_CONTAINER"
+    },
+    "isActive" : true,
+    "isOptional" : false,
+    "propertiesMetadata" : {
+      "metadata" : { }
+    },
+    "parametersMetadata" : {
+      "metadata" : { }
+    },
+    "requiredDependencies" : [ ]
+  } ],
+  "parameters" : {
+    "authorization-url" : "********",
+    "xs-api-url" : "https://api.cf.eu10.hana.ondemand.com",
+    "deploy-url" : "deploy-service.cfapps.eu10.hana.ondemand.com",
+    "org" : "SEIDOR, S.A._SEIDOR",
+    "xs-type" : "CF",
+    "default-domain" : "cfapps.eu10.hana.ondemand.com",
+    "deploy-target" : "SEIDOR, S.A._SEIDOR CF_PT_Space",
+    "xs-auth-url" : "********",
+    "user" : "********",
+    "space" : "CF_PT_Space",
+    "controller-url" : "https://api.cf.eu10.hana.ondemand.com"
+  },
+  "parametersMetadata" : {
+    "metadata" : { }
+  }
+}#
+
+#2.0#2020 03 27 14:46:39.489#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+[XS2ProcessDescriptorStep] Merged descriptor properties and parameters resolved#
+
+#2.0#2020 03 27 14:46:39.491#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.reprocessDescriptorTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-26###
+Step "Re-Process Descriptor Step" finished#
+
+#2.0#2020 03 27 14:46:39.516#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildApplicationDeployModelStep] Executing task "buildApplicationDeployModelTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:46:39.517#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildApplicationDeployModelStep] Building cloud deployment model for application "bookshop-db"...#
+
+#2.0#2020 03 27 14:46:39.520#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildApplicationDeployModelStep] App with updated environment: {
+  "name" : "bookshop-db",
+  "v3Metadata" : {
+    "annotations" : {
+      "mta_id" : "bookshop",
+      "mta_version" : "1.0.0",
+      "mta_module" : "{\"name\":\"bookshop-db\"}",
+      "mta_module_provided_dependencies" : "[]",
+      "mta_bound_services" : "[\"bookshop-db-hdi-container\"]"
+    },
+    "labels" : {
+      "mta_id" : "2a4a0bf95d32e1e3699eb55927334851"
+    }
+  },
+  "memory" : 256,
+  "diskQuota" : 256,
+  "instances" : 1,
+  "runningInstances" : 0,
+  "staging" : {
+    "buildpacks" : [ ]
+  },
+  "uris" : [ ],
+  "services" : [ "bookshop-db-hdi-container" ],
+  "env" : {
+    "DEPLOY_ATTRIBUTES" : "{\n  \"dependency-type\" : \"hard\",\n  \"no-start\" : true\n}",
+    "EXIT" : "1",
+    "MTA_METADATA" : "{\n  \"id\" : \"bookshop\",\n  \"version\" : \"1.0.0\"\n}",
+    "MTA_MODULE_METADATA" : "{\n  \"name\" : \"bookshop-db\"\n}",
+    "MTA_MODULE_PROVIDED_DEPENDENCIES" : "[ ]",
+    "MTA_SERVICES" : "[ \"bookshop-db-hdi-container\" ]"
+  },
+  "moduleName" : "bookshop-db",
+  "idleUris" : [ ],
+  "bindingParameters" : { },
+  "tasks" : [ {
+    "name" : "deploy",
+    "command" : "npm start",
+    "limits" : {
+      "memory" : 256
+    }
+  } ],
+  "routes" : [ ],
+  "serviceKeysToInject" : "********",
+  "domains" : [ "cfapps.eu10.hana.ondemand.com" ],
+  "restartParameters" : {
+    "shouldRestartOnVcapAppChange" : true,
+    "shouldRestartOnVcapServicesChange" : true,
+    "shouldRestartOnUserProvidedChange" : "********"
+  },
+  "attributesUpdateStrategy" : {
+    "shouldKeepExistingEnv" : false,
+    "shouldKeepExistingServiceBindings" : false,
+    "shouldKeepExistingRoutes" : false
+  }
+}#
+
+#2.0#2020 03 27 14:46:39.521#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildApplicationDeployModelStep] Configuration entries to publish: [ ]#
+
+#2.0#2020 03 27 14:46:39.522#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+[XS2BuildApplicationDeployModelStep] Cloud deployment model for application built#
+
+#2.0#2020 03 27 14:46:39.523#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.buildApplicationDeployModelTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-3###
+Step "Build Application Deploy Model" finished#
+
+#2.0#2020 03 27 14:46:39.550#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[CreateOrUpdateAppStep] Executing task "createAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:46:42.131#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[CreateOrUpdateAppStep] Creating application "bookshop-db" from MTA module "bookshop-db"...#
+
+#2.0#2020 03 27 14:46:51.405#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[CreateOrUpdateAppStep] Binding parameters for application "bookshop-db": { }#
+
+#2.0#2020 03 27 14:46:51.405#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[CreateOrUpdateAppStep] Binding application "bookshop-db" to service "bookshop-db-hdi-container" with parameters "{}"#
+
+#2.0#2020 03 27 14:47:13.439#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[CreateOrUpdateAppStep] Application "bookshop-db" created#
+
+#2.0#2020 03 27 14:47:13.442#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.createAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+Step "Create App" finished#
+
+#2.0#2020 03 27 14:47:13.475#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-12###
+[UploadAppStep] Executing task "uploadAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:47:13.476#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-12###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2020 03 27 14:47:13.476#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-12###
+[UploadAppStep] Uploading application "bookshop-db"...#
+
+#2.0#2020 03 27 14:47:13.480#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-12###
+[UploadAppStep] Uploading file "bookshop-db/data.zip" for application "bookshop-db"#
+
+#2.0#2020 03 27 14:47:29.103#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-12###
+[UploadAppStep] Started async upload of application "bookshop-db"#
+
+#2.0#2020 03 27 14:47:29.105#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-12###
+Step "Upload App" finished#
+
+#2.0#2020 03 27 14:47:29.305#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 584d8215-3f1f-489d-b228-c1cd6e33e224###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 03 27 14:47:34.489#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 584d8215-3f1f-489d-b228-c1cd6e33e224###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 03 27 14:47:36.479#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[UploadAppStep] Executing task "uploadAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:47:36.482#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2020 03 27 14:47:36.482#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+[UploadAppStep] Checking upload status of application "bookshop-db"...#
+
+#2.0#2020 03 27 14:47:36.658#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-4###
+Step "Upload App" finished#
+
+#2.0#2020 03 27 14:47:46.497#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[UploadAppStep] Executing task "uploadAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:47:46.498#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2020 03 27 14:47:46.498#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+[UploadAppStep] Checking upload status of application "bookshop-db"...#
+
+#2.0#2020 03 27 14:47:46.680#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-5###
+Step "Upload App" finished#
+
+#2.0#2020 03 27 14:47:39.656#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 584d8215-3f1f-489d-b228-c1cd6e33e224###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 03 27 14:47:44.870#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 584d8215-3f1f-489d-b228-c1cd6e33e224###
+[UploadAppStep] Upload status: PROCESSING_UPLOAD#
+
+#2.0#2020 03 27 14:47:50.054#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 584d8215-3f1f-489d-b228-c1cd6e33e224###
+[UploadAppStep] Upload status: READY#
+
+#2.0#2020 03 27 14:47:50.054#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########App upload monitor: 584d8215-3f1f-489d-b228-c1cd6e33e224###
+[UploadAppStep] Deleting temp file: META-INF/.sap_java_buildpack/tomcat/temp/2378091583050864086.zip#
+
+#2.0#2020 03 27 14:47:56.502#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Executing task "uploadAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:47:56.503#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Upload app timeout in seconds: 3,600#
+
+#2.0#2020 03 27 14:47:56.503#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Checking upload status of application "bookshop-db"...#
+
+#2.0#2020 03 27 14:47:56.683#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+[UploadAppStep] Application "bookshop-db" uploaded#
+
+#2.0#2020 03 27 14:47:56.686#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.uploadAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-32###
+Step "Upload App" finished#
+
+#2.0#2020 03 27 14:47:56.715#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[ScaleAppStep] Executing task "scaleAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:47:56.716#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[ScaleAppStep] Scaling application "bookshop-db"...#
+
+#2.0#2020 03 27 14:47:56.716#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[ScaleAppStep] Scaling application "bookshop-db" to "1" instances... #
+
+#2.0#2020 03 27 14:47:57.938#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+[ScaleAppStep] Application "bookshop-db" scaled#
+
+#2.0#2020 03 27 14:47:57.940#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.scaleAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-25###
+Step "Scale App" finished#
+
+#2.0#2020 03 27 14:47:57.967#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[DetermineDesiredStateAchievingActionsStep] Executing task "determineDesiredStateAchievingActionsTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:47:59.308#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[DetermineDesiredStateAchievingActionsStep] Current state of application bookshop-db: STOPPED#
+
+#2.0#2020 03 27 14:47:59.308#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[DetermineDesiredStateAchievingActionsStep] Desired state of application bookshop-db: STOPPED#
+
+#2.0#2020 03 27 14:48:00.592#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[DetermineDesiredStateAchievingActionsStep] No build found for application "bookshop-db"#
+
+#2.0#2020 03 27 14:48:00.592#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+[DetermineDesiredStateAchievingActionsStep] Actions that should be executed on application bookshop-db: [STAGE]#
+
+#2.0#2020 03 27 14:48:00.595#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.determineDesiredStateAchievingActionsTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-19###
+Step "Determine Desired State Achieving Actions" finished#
+
+#2.0#2020 03 27 14:48:00.627#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[StageAppStep] Executing task "stageAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:48:00.630#Z#INFO#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+[StageAppStep] Staging application "bookshop-db"...#
+
+#2.0#2020 03 27 14:48:14.464#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-17###
+Step "Stage App" finished#
+
+#2.0#2020 03 27 14:48:26.554#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Executing task "stageAppTask" of process "c421fde5-7039-11ea-8558-eeee0a99d9d8"...#
+
+#2.0#2020 03 27 14:48:26.555#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Checking status of application "bookshop-db"...#
+
+#2.0#2020 03 27 14:48:27.162#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Staging status of application "bookshop-db": FAILED#
+
+#2.0#2020 03 27 14:48:28.595#Z#ERROR#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] Staging of application "bookshop-db" failed. Download the application logs via the dmol command and check them for more information.#
+
+#2.0#2020 03 27 14:48:28.599#Z#ERROR#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+[StageAppStep] BuildpackCompileFailed - App staging failed in the buildpack compile phase#
+
+#2.0#2020 03 27 14:48:28.603#Z#ERROR#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+Exception caught#
+
+com.sap.cloud.lm.sl.common.SLException: A step of the process has failed. Retrying it may solve the issue.
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.executeInternal(SyncFlowableStep.java:69)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.lambda$execute$0(SyncFlowableStep.java:58)
+	at com.sap.cloud.lm.sl.cf.core.util.LoggingUtil.logWithCorrelationId(LoggingUtil.java:15)
+	at com.sap.cloud.lm.sl.cf.process.steps.SyncFlowableStep.execute(SyncFlowableStep.java:58)
+	at org.flowable.engine.impl.delegate.invocation.JavaDelegateInvocation.invoke(JavaDelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DelegateInvocation.proceed(DelegateInvocation.java:35)
+	at org.flowable.engine.impl.delegate.invocation.DefaultDelegateInterceptor.handleInvocation(DefaultDelegateInterceptor.java:26)
+	at org.flowable.engine.impl.bpmn.behavior.ServiceTaskDelegateExpressionActivityBehavior.execute(ServiceTaskDelegateExpressionActivityBehavior.java:111)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeActivityBehavior(ContinueProcessOperation.java:275)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.executeSynchronous(ContinueProcessOperation.java:159)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.continueThroughFlowNode(ContinueProcessOperation.java:114)
+	at org.flowable.engine.impl.agenda.ContinueProcessOperation.run(ContinueProcessOperation.java:78)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperation(CommandInvoker.java:88)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.executeOperations(CommandInvoker.java:72)
+	at org.flowable.engine.impl.interceptor.CommandInvoker.execute(CommandInvoker.java:56)
+	at org.flowable.engine.impl.interceptor.BpmnOverrideContextInterceptor.execute(BpmnOverrideContextInterceptor.java:25)
+	at org.flowable.common.engine.impl.interceptor.TransactionContextInterceptor.execute(TransactionContextInterceptor.java:53)
+	at org.flowable.common.engine.impl.interceptor.CommandContextInterceptor.execute(CommandContextInterceptor.java:72)
+	at org.flowable.common.spring.SpringTransactionInterceptor.lambda$execute$0(SpringTransactionInterceptor.java:56)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.flowable.common.spring.SpringTransactionInterceptor.execute(SpringTransactionInterceptor.java:56)
+	at org.flowable.common.engine.impl.interceptor.LogInterceptor.execute(LogInterceptor.java:30)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:56)
+	at org.flowable.common.engine.impl.cfg.CommandExecutorImpl.execute(CommandExecutorImpl.java:51)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.executeJob(ExecuteAsyncRunnable.java:128)
+	at org.flowable.job.service.impl.asyncexecutor.ExecuteAsyncRunnable.run(ExecuteAsyncRunnable.java:116)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:836)
+#2.0#2020 03 27 14:48:28.609#Z#DEBUG#com.sap.cloud.lm.sl.xs2.90d07a50-7039-11ea-b5d4-eeee0a8091ac.MAIN_LOG.stageAppTask#
+######com.sap.cloud.lm.sl.cf.persistence.services.ProcessLogger########flowable-async-job-executor-thread-6###
+Step "Stage App" finished#
+
