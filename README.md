@@ -2,6 +2,8 @@
 
 Simple CAP bookshop scenario with odata v2 adapter ready to be deployed to CF
 
+Thanks to Gregor Wolf for his support with https://answers.sap.com/questions/13013845/-11.html.
+
 ## Requirements
 * [Node.js](https://nodejs.org/en/) v10 or higher
 * [Git](https://git-scm.com)
