@@ -31,7 +31,7 @@ Got issues?  Check out the [documentation](https://cap.cloud.sap/docs/get-starte
 #### Clone, build and run
 
 ```sh
-git clone https://github.com/SAP-samples/cloud-cap-samples samples && cd samples && npm i`
+git clone https://github.com/socenmarc/bookshop_odatav2.git
 cd bookshop
 npm install
 npm run deploy
