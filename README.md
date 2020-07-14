@@ -32,7 +32,7 @@ Got issues?  Check out the [documentation](https://cap.cloud.sap/docs/get-starte
 
 ```sh
 git clone https://github.com/socenmarc/bookshop_odatav2.git
-cd bookshop
+cd bookshop_odatav2
 npm install
 npm run deploy
 npm run build
